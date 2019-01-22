@@ -39,11 +39,12 @@ int main(int argc, char** argv) {
         }
         
         //EOF. End program:
-        else standby = false;
+        else standby = false;	
         
     }
 
     //Successful completion.
+    printf("\n");
     return 0;
 }
 

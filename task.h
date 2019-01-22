@@ -29,12 +29,14 @@ public: //Public functions: ***********************************************
     task() : infile("none"), outfile("none") { arg_ptr = NULL; }
    
     char** getArgs() {
-        arg_ptr = new char*[args.size() + 1];
+        arg_ptr = new char*[args.size() + 2];
+	arg_ptr[0] = new char[32];
+	strncpy(arg_ptr[0], executable.c_str(), 32);
         for (size_t i = 0; i < args.size(); i++) {
-            arg_ptr[i] = new char[32];
+            arg_ptr[i + 1] = new char[32];
             strncpy(arg_ptr[i], args[i].c_str(), 32);
         }
-        arg_ptr[args.size()] = NULL;
+        arg_ptr[args.size() + 1] = NULL;
 
         return arg_ptr;
     }
