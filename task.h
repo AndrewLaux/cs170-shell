@@ -37,6 +37,10 @@ public: //Public functions: ***********************************************
         return arg_ptr;
     }
 
+    char* getExecutable() {
+	return executable.c_str();
+    }
+
     ~task() {
         if (arg_ptr != NULL) {
             for (size_t i = 0; i < args.size() + 1; i++) {
