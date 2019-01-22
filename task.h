@@ -34,7 +34,7 @@ public: //Public functions: ***********************************************
 	strncpy(arg_ptr[0], executable.c_str(), 32);
         for (size_t i = 0; i < args.size(); i++) {
             arg_ptr[i + 1] = new char[32];
-            strncpy(arg_ptr[i], args[i].c_str(), 32);
+            strncpy(arg_ptr[i + 1], args[i].c_str(), 32);
         }
         arg_ptr[args.size() + 1] = NULL;
 

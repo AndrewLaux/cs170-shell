@@ -105,11 +105,14 @@ void task_manager::update_command(char *const cmd){
 
 void task_manager::run_input(){
     auto ptr = this->task_list[0].getArgs();
-    for (int i = 0; i < task_list[0].args.size() + 1; i++) {
-	    printf(ptr[i]);
+    pid_t pid = fork();
+    if(pid == 0) {
+
+    	execvp(ptr[0], ptr);
+    	
     }
-    execvp(ptr[0], ptr);
-    perror("Error");
+    int status;
+    waitpid(-1,&status, 0);
 }
 
 

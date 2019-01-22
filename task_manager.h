@@ -8,6 +8,7 @@
 #include <sstream>
 #include <exception>
 #include <unistd.h>
+#include <sys/wait.h>
 #include "task.h"
 
 //*************************************************************************

@@ -40,7 +40,9 @@ int main(int argc, char** argv) {
         
         //EOF. End program:
         else standby = false;	
-        
+       
+        //Clear stdin:
+	fseek(stdin,0,SEEK_END);	
     }
 
     //Successful completion.
