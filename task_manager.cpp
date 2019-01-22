@@ -104,8 +104,9 @@ void task_manager::update_command(char *const cmd){
 }
 
 void task_manager::run_input(){
-    auto ptr = task_list[0].getArgs();
-    execvp(task_list[0].getExecutable(), ptr);
+    auto ptr = this->task_list[0].getArgs();
+    
+    
 }
 
 

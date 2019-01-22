@@ -7,7 +7,6 @@
 #include <string>
 #include <sstream>
 #include <exception>
-#include <unistd.h>
 #include "task.h"
 
 //*************************************************************************

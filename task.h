@@ -1,6 +1,8 @@
 #ifndef task_h
 #define task_h
 
+
+
 #include <string>
 #include <cstring>
 #include <vector>
@@ -24,21 +26,29 @@ public: //Publicly accessible data: ****************************************
 
 public: //Public functions: ***********************************************
 
-    task() : infile("none"), outfile("none") {  }
+    task() : infile("none"), outfile("none") { arg_ptr = NULL; }
    
-    const char** getArgs() {
+    char** getArgs() {
         arg_ptr = new char*[args.size() + 1];
         for (size_t i = 0; i < args.size(); i++) {
             arg_ptr[i] = new char[32];
             strncpy(arg_ptr[i], args[i].c_str(), 32);
         }
-        arg_ptr[args.size() + 1] = NULL;
+        arg_ptr[args.size()] = NULL;
 
         return arg_ptr;
     }
 
     const char* getExecutable() {
 	    return executable.c_str();
+    }
+    task(const task& ref) {
+        this->executable = ref.executable;
+        this->infile = ref.infile;
+        this->outfile = ref.outfile;
+        this->args = ref.args;
+        this->background = ref.background;
+        this->arg_ptr = NULL;
     }
 
     ~task() {
