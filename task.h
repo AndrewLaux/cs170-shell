@@ -26,7 +26,7 @@ public: //Public functions: ***********************************************
 
     task() : infile("none"), outfile("none") {  }
    
-    char** getArgs() {
+    const char** getArgs() {
         arg_ptr = new char*[args.size() + 1];
         for (size_t i = 0; i < args.size(); i++) {
             arg_ptr[i] = new char[32];
@@ -37,8 +37,8 @@ public: //Public functions: ***********************************************
         return arg_ptr;
     }
 
-    char* getExecutable() {
-	return executable.c_str();
+    const char* getExecutable() {
+	    return executable.c_str();
     }
 
     ~task() {
