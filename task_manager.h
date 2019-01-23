@@ -9,6 +9,7 @@
 #include <exception>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <fcntl.h>
 #include "task.h"
 
 //*************************************************************************
@@ -19,7 +20,7 @@ class task_manager {
 
 private: //Private data: **************************************************
     std::vector <std::string>cmd_list;
-    std::vector <task>task_list;
+    std::vector<task> ready_list;
 
 public: //Public functions: ***********************************************
     task_manager(); 

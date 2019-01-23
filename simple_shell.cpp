@@ -14,6 +14,12 @@
 // on. Given an invalid command, main should simply as for another. 
 int main(int argc, char** argv) {
 
+    //Look for -n argument:
+    bool n_flag = false;
+    if (argc > 1) {
+        if (strncmp(argv[1], "-n", 32) == 0) n_flag = true;
+    }
+
     //Declare input variable:
     char input[512];
     bool standby = true;
@@ -25,7 +31,7 @@ int main(int argc, char** argv) {
     while (standby) {
 
         //Print Prompt:
-        printf("shell: ");
+        if(!n_flag) printf("shell: ");
         
         //Get shell command:
         if (fgets(input, 512, stdin) != NULL) {
